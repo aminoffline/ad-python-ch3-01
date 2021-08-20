@@ -20,7 +20,7 @@ def Create_database(name):
 Tables = {}
 Tables['Person'] = (
     "CREATE TABLE IF NOT EXISTS `Person` ("
-    " `id` INT NOT NULL AUTO_INCREMENT,"
+    " `id` SMALLINT NOT NULL AUTO_INCREMENT,"
     " `name` VARCHAR (25) NOT NULL,"
     " `weight` INT (3) NOT NULL,"
     " `height` INT (3) NOT NULL,"

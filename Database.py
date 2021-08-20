@@ -1,5 +1,5 @@
 import mysql.connector
-from DB_Setup import  DataBase_name
+from DB_Setup import DataBase_name
 
 db_name = DataBase_name
 config ={
@@ -12,14 +12,14 @@ config ={
 db = mysql.connector.connect(**config)
 cursor = db.cursor()
 
-'''def Insert_Table(T_name,*values):
-    sql = f'INSERT INTO {T_name} VALUES ({values})'
+def Insert_Table(Table_name,keys,values):
+    key = str(keys)
+    key = key.replace("[", "")
+    key = key.replace("]", "")
+    key = key.replace("'","")
+    val = str(values)
+    val = val.replace("[", "")
+    val = val.replace("]", "")
+    sql = f"INSERT INTO {Table_name} ({key}) VALUES ({val})"
     cursor.execute(sql)
     db.commit()
-'''
-
-#Insert_Table('person','Amin',102,183)
-def test(a,*b):
-    print(type(a),type(b),len(b))
-
-
