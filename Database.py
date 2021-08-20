@@ -17,9 +17,20 @@ def Insert_Table(Table_name,keys,values):
     key = key.replace("[", "")
     key = key.replace("]", "")
     key = key.replace("'","")
+    key = key.replace('"','')
     val = str(values)
     val = val.replace("[", "")
     val = val.replace("]", "")
     sql = f"INSERT INTO {Table_name} ({key}) VALUES ({val})"
     cursor.execute(sql)
     db.commit()
+def Read_all_Data(Table_name):
+    sql = f"SECLECT * FROM {Table_name}"
+    cursor.execute(sql)
+    ad = cursor # ad == All Data
+    return ad
+def Read_all_Rows(Table_name):
+    sql = f"SECLECT * FROM {Table_name}"
+    cursor.execute(sql)
+    ad = cursor.fetchall() # ad == All Data
+    return ad
